@@ -8,7 +8,7 @@ const List = () => {
         <div className='list'>
             <h2>All Todos</h2>
             <div className="todos">
-                {todos.map((todo, i) => (
+                {todos.length === 0 ? <span className='emptyList'>Your Todo List in Empty</span> : todos.map((todo, i) => (
                     <TodoCard todo={todo} index={i} key={i} />
                 ))}
             </div>
