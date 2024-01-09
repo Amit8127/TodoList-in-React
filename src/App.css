@@ -1,0 +1,143 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.logo {
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 3rem;
+  background-color: #1a1a1a;
+  align-items: center;
+  position: sticky;
+  top: 0;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline;
+  margin-left: 2rem;
+  opacity: 0.8;
+}
+
+li:hover {
+  cursor: pointer;
+  opacity: 1;
+  transition: all .3s ease;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.form form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.input {
+  padding: 15px;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: .5rem;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.form button:focus {
+  outline: none;
+}
+
+.list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todos {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  gap: 20px;
+}
+
+.emptyList {
+  font-size: 2rem;
+  margin-inline: auto;
+}
+
+.todo {
+  min-width: 30%;
+  background-color: rgb(75, 74, 74);
+  padding: 1rem;
+  border-radius: 5px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button:focus {
+  outline: none;
+}
