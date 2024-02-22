@@ -25,7 +25,6 @@ const Dashboard = () => {
 
   const addNewTodo = async (e) => {
     e.preventDefault();
-    console.log(todoText);
     if (todoText.trim() !== "")
       try {
         setLoading(true);
