@@ -79,8 +79,6 @@ const LoginPage = () => {
 
     if (!email) {
       newErrors.email = "Email or Username is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Invalid email address";
     }
 
     if (!password) {
