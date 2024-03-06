@@ -144,7 +144,7 @@ const LoginPage = () => {
               type="submit"
               className="btn btn-primary"
             >
-              Sign Up
+              Log In
             </button>
             <p className="pt-3 m-0" style={{ textAlign: "center" }}>
               Don't have an Account? Click here to{" "}
