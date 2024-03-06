@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { logIn } from "../services/userServices";
 import { doLogedIn } from "../auth/auth";
 import { toast } from "react-toastify";
+import ReactLoading from "react-loading";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -95,60 +96,72 @@ const LoginPage = () => {
       <nav className="bg-dark">
         <h2 className="logo">Todo App</h2>
       </nav>
-      <div className="pt-3">
-        <form
-          className="mx-auto card shadow-lg w-50 p-3"
-          onSubmit={handleSubmit}
-        >
-          <h2 className="text-center">LogIn Page</h2>
-          <div className="mb-3 text-start">
-            <label htmlFor="email" className="form-label">
-              Email or Username:
-            </label>
-            <input
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={`form-control ${
-                errors.email ? "is-invalid" : ""
-              } form-control`}
-            />
-            <div className="invalid-feedback">{errors.email}</div>
-          </div>
+      {loading ? (
+        <div className="loading-overlay">
+          <ReactLoading type={"spokes"} color={"#316cf4"} width={100} />
+        </div>
+      ) : (
+        <div className="pt-3">
+          <form
+            className="mx-auto card shadow-lg w-50 p-3"
+            onSubmit={handleSubmit}
+          >
+            <h2 className="text-center">LogIn Page</h2>
+            <div className="mb-3 text-start">
+              <label htmlFor="email" className="form-label">
+                Email or Username:
+              </label>
+              <input
+                type="text"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={`form-control ${
+                  errors.email ? "is-invalid" : ""
+                } form-control`}
+              />
+              <div className="invalid-feedback">{errors.email}</div>
+            </div>
 
-          <div className="mb-3 text-start">
-            <label htmlFor="password" className="form-label">
-              Password:
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className={`form-control ${errors.password ? "is-invalid" : ""}`}
-            />
-            <div className="invalid-feedback">{errors.password}</div>
-          </div>
+            <div className="mb-3 text-start">
+              <label htmlFor="password" className="form-label">
+                Password:
+              </label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className={`form-control ${
+                  errors.password ? "is-invalid" : ""
+                }`}
+              />
+              <div className="invalid-feedback">{errors.password}</div>
+            </div>
 
-          <button disabled={loading} type="submit" className="btn btn-primary">
-            Sign Up
-          </button>
-          <p className="pt-3 m-0" style={{ textAlign: "center" }}>
-            Don't have an Account? Click here to{" "}
-            <span
-              style={{
-                color: "#316cf4",
-                fontWeight: "500",
-                cursor: "pointer",
-              }}
-              onClick={() => navigate("/signup")}
+            <button
+              disabled={loading}
+              type="submit"
+              className="btn btn-primary"
             >
-              SignUp.
-            </span>
-          </p>
-        </form>
-      </div>
+              Sign Up
+            </button>
+            <p className="pt-3 m-0" style={{ textAlign: "center" }}>
+              Don't have an Account? Click here to{" "}
+              <span
+                style={{
+                  color: "#316cf4",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate("/signup")}
+              >
+                SignUp.
+              </span>
+            </p>
+          </form>
+        </div>
+      )}
     </>
   );
 };
