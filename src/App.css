@@ -138,6 +138,7 @@ li:hover {
 .todo {
   position: relative;
   min-width: 415px;
+  max-width: 415px;
   height: 200px;
   background-color: rgb(162, 162, 162);
   padding: 1rem;
