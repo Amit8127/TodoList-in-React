@@ -31,9 +31,11 @@
 .logo {
   color: white;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
+
 nav {
   width: 100%;
   display: flex;
@@ -84,7 +86,7 @@ li:hover {
 }
 
 .input:focus {
-  outline-style:solid;
+  outline-style: solid;
   outline-color: rgb(94, 94, 94);
   outline-width: 2px;
 }
@@ -121,8 +123,10 @@ li:hover {
   width: 90%;
   height: 90%;
   display: flex;
+  text-align: center;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-inline:auto;
+  margin-inline: auto;
   gap: 20px;
 }
 
@@ -133,8 +137,7 @@ li:hover {
 
 .todo {
   position: relative;
-  min-width: 32.3%;
-  max-width: 32.3%;
+  min-width: 415px;
   height: 200px;
   background-color: rgb(162, 162, 162);
   padding: 1rem;
@@ -145,9 +148,6 @@ li:hover {
   border: 1.5px solid rgb(56, 56, 56);
   gap: 10px;
 }
-
-
-
 
 .buttons {
   display: flex;
@@ -164,7 +164,7 @@ li:hover {
 }
 
 .buttons button {
-  padding: .5rem 1.5rem ;  
+  padding: .5rem 1.5rem;
   background-color: #888;
   border: 1.5px solid rgb(56, 56, 56);
   transition: all .3s ease;
