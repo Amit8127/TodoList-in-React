@@ -1,4 +1,6 @@
 #root {
+  margin: 0;
+  padding: 0;
   margin: 0 auto;
   text-align: center;
 }
@@ -45,11 +47,6 @@ nav {
   align-items: center;
   position: sticky;
   top: 0;
-}
-
-
-ul {
-  list-style-type: none;
 }
 
 li {
@@ -101,26 +98,20 @@ li:hover {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-bottom: 10px;
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
 }
 
 .todos {
   width: 90%;
   padding: 20px 0;
-  min-height: 90%;
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
   margin-inline: auto;
   gap: 20px;
+  max-width: 1280px;
+  overflow-y: auto;
+  margin-bottom: 60px;
 }
 
 .emptyList {
@@ -130,11 +121,11 @@ li:hover {
 
 .todo {
   position: relative;
-  min-width: 415px;
-  max-width: 415px;
+  min-width: 410px;
+  max-width: 410px;
   height: 200px;
   background-color: rgb(237, 236, 236) !important;
-  box-shadow: inset 10px 10px 14px 2px rgb(255, 255, 255);
+  box-shadow: 5px 5px 10px 2px rgb(230 225 225);
   padding: 1rem;
   border-radius: 5px;
   text-align: left;
@@ -183,6 +174,13 @@ li:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.pagination {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* This centers the element horizontally */
 }
 
 

@@ -58,9 +58,11 @@ export const createTodo = async (todoText) => {
   }
 };
 
-export const getAllTodos = async () => {
+export const getAllTodos = async (perPage, currentPage) => {
   try {
-    const response = await api.get("/read-item");
+    const response = await api.get("/read-item", {
+      params: { page: currentPage, limit: perPage }, // Pass parameters as query parameters
+    });
     return response.data;
   } catch (error) {
     console.log(error);
