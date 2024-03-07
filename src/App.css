@@ -79,7 +79,7 @@ li:hover {
   color: black;
   width: 50%;
   padding: 15px;
-  border: none;
+  border: 1px solid black;
   font-size: 1rem;
   border-radius: .5rem;
   background-color: white;
@@ -88,20 +88,12 @@ li:hover {
 .input:focus {
   outline-style: solid;
   outline-color: rgb(94, 94, 94);
-  outline-width: 2px;
+  outline-width: 1px;
 }
 
 .form button {
-  background-color: #888;
+  padding: 0 25px;
   transition: all .3s ease;
-}
-
-.form button:focus {
-  outline: none;
-}
-
-.form button:hover {
-  background-color: #222529;
 }
 
 .dashboard {
@@ -121,7 +113,8 @@ li:hover {
 
 .todos {
   width: 90%;
-  height: 90%;
+  padding: 20px 0;
+  min-height: 90%;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -140,7 +133,8 @@ li:hover {
   min-width: 415px;
   max-width: 415px;
   height: 200px;
-  background-color: rgb(162, 162, 162);
+  background-color: rgb(237, 236, 236) !important;
+  box-shadow: inset 10px 10px 14px 2px rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 5px;
   text-align: left;
@@ -166,13 +160,8 @@ li:hover {
 
 .buttons button {
   padding: .5rem 1.5rem;
-  background-color: #888;
-  border: 1.5px solid rgb(56, 56, 56);
+  font-weight: 500;
   transition: all .3s ease;
-}
-
-.buttons button:hover {
-  background-color: #222529;
 }
 
 .buttons button:focus {
@@ -194,4 +183,22 @@ li:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+@media only screen and (max-width: 767px) {
+
+  #card {
+    width: 90% !important;
+  }
+
+  .todos {
+    width: 100%;
+    padding: 10px !important;
+  }
+
+  .todo {
+    max-width: 95% !important;
+    min-width: 95% !important;
+  }
 }

@@ -102,7 +102,7 @@ const LoginPage = () => {
         </div>
       ) : (
         <div className="pt-3">
-          <form
+          <form id="card"
             className="mx-auto card shadow-lg w-50 p-3"
             onSubmit={handleSubmit}
           >

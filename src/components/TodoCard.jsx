@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { deleteTodoWithId, editTodoWithId } from "../services/userServices";
+import { deleteTodoWithId, editTodoWithId, updateStatusTodoWithId } from "../services/userServices";
 import { toast } from "react-toastify";
 
 const TodoCard = ({ todo, getAllTodosFun }) => {
@@ -9,7 +9,7 @@ const TodoCard = ({ todo, getAllTodosFun }) => {
     try {
       setLoading(true);
       const response = await deleteTodoWithId(todo._id);
-      if(response.status !== 200) {
+      if (response.status !== 200) {
         toast.error(response.message);
         return;
       }
@@ -24,12 +24,29 @@ const TodoCard = ({ todo, getAllTodosFun }) => {
 
   const editTodoFun = async () => {
     const newData = prompt("Enter new Todo Text here: ");
-    if(newData !== null)
+    if (newData !== null)
+      try {
+        setLoading(true);
+        const response = await editTodoWithId(todo._id, newData);
+        if (response.status !== 200) {
+          toast.error(response.error);
+          return;
+        }
+        toast.success(response.message);
+        await getAllTodosFun();
+      } catch (error) {
+        toast.error(error.message);
+      } finally {
+        setLoading(false);
+      }
+  };
+
+  const updateStatus = async () => {
     try {
       setLoading(true);
-      const response = await editTodoWithId(todo._id, newData);
+      const response = await updateStatusTodoWithId(todo._id, !todo.status);
       if (response.status !== 200) {
-        toast.error(response.error);
+        toast.error(response.message);
         return;
       }
       toast.success(response.message);
@@ -45,10 +62,13 @@ const TodoCard = ({ todo, getAllTodosFun }) => {
     <div className="todo">
       <h5 style={{ minHeight: "50px" }}>{todo.todo}</h5>
       <div className="buttons">
-        <button disabled={loading} onClick={editTodoFun}>
+        <button className={todo.status ? "btn btn-outline-success": "btn btn-outline-primary"} disabled={loading} onClick={updateStatus}>
+          {todo.status ? "Completed" : "Pending..."}
+        </button>
+        <button className={todo.status ? "btn btn-warning": "btn btn-outline-warning"} disabled={loading || todo.status} onClick={editTodoFun}>
           Edit
         </button>
-        <button disabled={loading} onClick={deleteTodoFun}>
+        <button className="btn btn-outline-danger" disabled={loading} onClick={deleteTodoFun}>
           Delete
         </button>
       </div>

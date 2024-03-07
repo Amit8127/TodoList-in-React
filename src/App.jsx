@@ -12,7 +12,7 @@ import Dashboard from "./pages/Dashboard";
 function App() {
   return (
     <>
-      <div className="bg-secondary-subtle" style={{ minHeight: "100vh" }}>
+      <div className="bg-light-subtle" style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignupPage />} />

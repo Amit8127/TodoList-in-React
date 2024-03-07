@@ -78,6 +78,16 @@ export const editTodoWithId = async (id, newData) => {
   }
 };
 
+export const updateStatusTodoWithId = async (id, status) => {
+  try {
+    const response = await api.put("/update-item", { id: id, status: status });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
+};
+
 export const deleteTodoWithId = async (id) => {
   try {
     const response = await api.delete(`/delete-item/${id}`);

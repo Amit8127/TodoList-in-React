@@ -88,7 +88,11 @@ const Dashboard = () => {
             value={memoizedTodoText}
             onChange={(e) => setTodoText(e.target.value)}
           />
-          <button disabled={loading} className="formBtn" onClick={addNewTodo}>
+          <button
+            disabled={loading}
+            className=" btn btn-outline-primary formBtn"
+            onClick={addNewTodo}
+          >
             Add Todo
           </button>
         </form>
@@ -105,9 +109,18 @@ const Dashboard = () => {
               <img src={emptyList} alt="empty" height={"400px"} />
             </span>
           ) : (
-            todos.map((todo, i) => (
-              <TodoCard todo={todo} key={i} getAllTodosFun={getAllTodosFun} />
-            ))
+            todos
+              .sort((a, b) => {
+                // First, sort by status (false on top)
+                if (a.status !== b.status) {
+                  return a.status === false ? -1 : 1;
+                }
+                // If status is the same, then sort by creation time
+                return new Date(b.date) - new Date(a.date);
+              })
+              .map((todo, i) => (
+                <TodoCard todo={todo} key={i} getAllTodosFun={getAllTodosFun} />
+              ))
           )}
         </div>
       </div>
