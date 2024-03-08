@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signUp } from "../services/userServices";
 import { toast } from "react-toastify";
-import  ReactLoading  from 'react-loading';
+import ReactLoading from "react-loading";
 
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -113,15 +113,13 @@ const SignupPage = () => {
       </nav>
       {loading ? (
         <div className="loading-overlay">
-          <ReactLoading
-            type={"spokes"}
-            color={"#316cf4"}
-            width={100}
-          />
+          <ReactLoading type={"spokes"} color={"#316cf4"} width={100} />
         </div>
       ) : (
         <div className="pt-3">
-          <form id="card"
+          <form
+            id="card"
+            style={{ maxWidth: "700px" }}
             className="mx-auto card shadow-lg w-50 p-3"
             onSubmit={handleSubmit}
           >

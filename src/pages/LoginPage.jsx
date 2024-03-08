@@ -102,7 +102,9 @@ const LoginPage = () => {
         </div>
       ) : (
         <div className="pt-3">
-          <form id="card"
+          <form
+            id="card"
+            style={{ maxWidth: "700px" }}
             className="mx-auto card shadow-lg w-50 p-3"
             onSubmit={handleSubmit}
           >

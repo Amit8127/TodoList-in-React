@@ -59,12 +59,12 @@ const TodoCard = ({ todo, getAllTodosFun }) => {
   };
 
   return (
-    <div className="todo">
+    <div className="todo" >
       <h5 style={{ minHeight: "50px" }}>{todo.todo}</h5>
       <div className="buttons">
-        <button className={todo.status ? "btn btn-outline-success": "btn btn-outline-primary"} disabled={loading} onClick={updateStatus}>
+        <div className={todo.status ? "btn btn-outline-success": "btn btn-outline-info"} disabled={loading} onClick={updateStatus}>
           {todo.status ? "Completed" : "Pending..."}
-        </button>
+        </div>
         <button className={todo.status ? "btn btn-warning": "btn btn-outline-warning"} disabled={loading || todo.status} onClick={editTodoFun}>
           Edit
         </button>

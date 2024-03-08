@@ -134,7 +134,7 @@ const Dashboard = () => {
                 return a.status === false ? -1 : 1;
               }
               // If status is the same, then sort by creation time
-              return new Date(b.date) - new Date(a.date);
+              return new Date(a.date) - new Date(b.date);
             })
             .map((todo, i) => (
               <TodoCard todo={todo} key={i} getAllTodosFun={getAllTodosFun} />
