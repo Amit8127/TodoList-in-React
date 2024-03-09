@@ -18,6 +18,7 @@ const LoginPage = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [wait, setWait] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,9 +46,14 @@ const LoginPage = () => {
       } else {
         // Form is valid, proceed with login submission or API call
         try {
+          // Use a timeout with setTimeout
+          setTimeout(() => {
+            setWait(true);
+          }, 10000); // 10 seconds timeout;
+
           const response = await logIn(formData);
 
-          if (response.status !== 200) {
+          if (response && response.status !== 200) {
             toast.error(response.message);
             return;
           }
@@ -72,6 +78,7 @@ const LoginPage = () => {
       console.log(error);
     } finally {
       setLoading(false);
+      setWait(false);
     }
   };
 
@@ -97,9 +104,16 @@ const LoginPage = () => {
         <h2 className="logo">Todo App</h2>
       </nav>
       {loading ? (
-        <div className="loading-overlay">
-          <ReactLoading type={"spokes"} color={"#316cf4"} width={100} />
-        </div>
+        <>
+          <div className="loading-overlay">
+            <ReactLoading type={"spokes"} color={"#316cf4"} width={100} />
+          </div>
+          {wait ? (
+            <h3 className="mt-5">Please wait It might take few more seconds...</h3>
+          ) : (
+            <></>
+          )}
+        </>
       ) : (
         <div className="pt-3">
           <form

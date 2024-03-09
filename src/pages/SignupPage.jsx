@@ -23,6 +23,7 @@ const SignupPage = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [wait, setWait] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -74,6 +75,11 @@ const SignupPage = () => {
       if (Object.keys(newErrors).length > 0) {
         setErrors(newErrors);
       } else {
+        // Use a timeout with setTimeout
+        setTimeout(() => {
+          setWait(true);
+        }, 10000); // 10 seconds timeout;
+
         // Form is valid, proceed with submission or API call
         const response = await signUp(formData);
 
@@ -112,9 +118,16 @@ const SignupPage = () => {
         <h2 className="logo">Todo App</h2>
       </nav>
       {loading ? (
-        <div className="loading-overlay">
-          <ReactLoading type={"spokes"} color={"#316cf4"} width={100} />
-        </div>
+        <>
+          <div className="loading-overlay">
+            <ReactLoading type={"spokes"} color={"#316cf4"} width={100} />
+          </div>
+          {wait ? (
+            <h3 className="mt-5">Please wait It might take few more seconds...</h3>
+          ) : (
+            <></>
+          )}
+        </>
       ) : (
         <div className="pt-3">
           <form
