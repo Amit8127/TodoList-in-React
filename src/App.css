@@ -112,6 +112,8 @@ li:hover {
   flex-direction: column;
   border: 1.5px solid lightgray;
   gap: 10px;
+    text-align: center;
+  background-color: rgb(250, 235, 246);
 }
 
 .buttons {
